@@ -1,0 +1,499 @@
+@charset "UTF-8";
+
+.main-menu{display: none;}
+.sub-menu{display: none;}
+.gnb-mo{
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    background: rgb(121, 121, 220);
+    display: flex;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.toggleBtn{
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 20px;
+    left: 20px;
+    z-index: 101;
+}
+
+.toggleBtn span{
+    display: block;
+    height: 4px;
+    background-color: #fff;
+}
+
+
+/* nav */
+
+#menu {
+    position: fixed;
+    width: 520px;
+    height: 100%;
+    top: 0;
+    left: -520px;
+    z-index: 100;
+    background: rgb(159, 71, 159);
+    padding: 50px 0;
+    transition: all .3s ease-in-out;
+}
+
+#menu.show {
+    left: 0;
+    height: 1000px;
+}
+
+#menu .search-menu{
+    width: 
+    520px;
+    background-color: #fff;
+    height: 110px;
+    position: relative;
+    top: 0;
+    z-index: 100;
+}
+
+#menu .search-menu .search-inner{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgb(159, 71, 159);
+}
+
+#menu .search-menu .search-inner input{
+    display: flex;
+    position: absolute;
+    width: 320px;
+    height: 50px;
+    background: rgb(85, 145, 224);
+    margin-left: 40px;
+    bottom: -80px;
+    border-radius: 5px;
+    text-indent: 20px;
+    font-size: 20px;
+    color: #fff;
+}
+
+#menu .search-menu .search-inner p{
+    width: 90px;
+    height: 40px;
+    background: #666;
+    position: absolute;
+    right: 20px;
+    bottom: -90px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    line-height: 35px;
+    color: #fff;
+}
+
+/* 1차메뉴 */
+
+.accordion .toggle {
+    position: relative;
+    display: block;
+    height: 80px;
+    padding: 1rem;
+    border-width: 0 1px 1px;
+    background-color: rgb(159, 71, 159);
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 80px;
+    text-decoration: none;
+}
+
+.accordion .toggle a:hover{
+    text-decoration: dashed;
+}
+
+/* 1차 + 모양 */
+
+.accordion .toggle::after {
+    content: "∇";
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 20%;
+    height: 20px;
+    width: 20px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.accordion.active .toggle,
+.accordion.active .toggle::after {
+    color: #fff;
+}
+
+.accordion.active .toggle::after {
+    content: "∧";
+    line-height: 60px;
+    color: #fff;
+}
+
+/* 2차메뉴 */
+.accordion .toggle-contents {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  .accordionSub {
+    font-size: 0.875rem; /*14px*/
+  }
+  
+  .toggleActive {
+    position: relative;
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid #2D2926;
+    /* border: solid #ccc; */
+    border-width: 0 1px 1px;
+    background-color: rgb(230, 130, 237);
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    color: #fff;
+  }
+  .toggleActive:after {
+    content: "▽";
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 20%;
+    height: 20px;
+    width: 20px;
+    line-height: 30px;
+    /* border: 2px solid #fff;
+    border-radius: 50%; */
+    text-align: center;
+    color: #fff;
+  }
+  
+  /* 2차메뉴 js */
+  .accordion.active .toggle-contents {
+    padding: 0.5rem 1rem;
+    border-width: 0 1px 1px;
+    background-color: rgb(230, 130, 237);
+    color: #fff;
+    max-height: 2000px; /*-------*/
+    transition: max-height 0.2s ease-in;
+  }
+  .accordionSub.active .active-content {
+    max-height: 2000px;
+    padding: 0.5rem 1rem;
+    /* border: solid #ccc; */
+    border-width: 0 1px 1px;
+    background-color: #fff;
+    color: #111;
+  }
+  .accordionSub.active .toggleActive,
+  .accordionSub.active .toggleActive:after {
+    color: #111;
+  }
+  .accordionSub.active .toggleActive:after {
+      content: "△";
+      line-height: 25px;
+      border-color: #fff;
+    }
+  
+  /*3차메뉴*/
+  .active-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+  }
+
+  .active-content p{
+      padding: 5px 0;
+      font-size: 14px;
+      
+  }
+
+  /* menu-toggle-btn js */
+
+.toggleBtn.active{
+    left: 540px;
+    transition: all .3s ease-in;
+}
+
+.toggleBtn > div{
+    width: 33px;
+    height: 6px;
+    border-radius: 2px;
+    background: #fff;
+    margin: 5px 28px;
+}
+
+  /* 햄버거 버튼 x모양으로 변경 */
+.toggleBtn.active #one{
+    transform: translateY(7px) rotate(-135deg);
+    transition: all .5s ease-in-out;
+    background-color: #fff;
+}
+
+.toggleBtn.active #two{
+    opacity: 0;
+}
+
+.toggleBtn.active #three{
+    transform: translateY(-12px) rotate(-45deg);
+    transition: all .5s ease-in-out;
+    background-color: #fff;
+}
+
+#slider{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+@media all and (min-width: 1200px){
+    
+    /* menu */
+
+    .gnb-mo{
+        display: none;
+    }
+
+    header{
+        display: block;
+    }
+
+    .main-menu{
+        display: block;
+    }
+
+    header{
+        width: 100%;
+        height: 120px;
+        background: #f6f5f0;
+        border-bottom:1px solid #c8c8c8;
+        position: relative;   /*메뉴고정*/
+        top: 0;
+        z-index: 10000;
+        margin: auto;
+    }
+    
+    header > .inner{
+        height: 100px;
+        position: relative;
+        margin: auto;
+    }
+    
+    /* logo */
+    
+    header h1 a.logo{
+        height: 75px;
+        position: absolute;
+        top: -00px;
+        left: 100px;
+        margin: auto 0;
+    }
+    
+    /* sub-menu */
+    .sub-menu{
+        display: flex;
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+    
+    header .sub-menu ul{
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    header .sub-menu ul li{
+        position: relative;
+    }
+    
+    header .sub-menu ul li::before{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 12px;
+        background: #e5e5e5;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
+    
+    header .sub-menu ul li:first-child::before{
+        content: '';
+        display: none;
+    }
+    
+    header .sub-menu ul li a{
+        padding: 11px 16px;
+        font-size: 12px;
+        color: #656565;
+        display: block;
+    }
+    
+    header .sub-menu ul li a:hover{
+        color: #000;
+    }
+    
+    
+    /* 검색창 */
+    header .search{
+        height: 34px;
+        position: relative;
+    }
+    
+    header .search input{
+        width: 36px;
+        height: 34px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #fff;
+        transition: width .3s;
+    }
+    
+    header .search input:focus{
+        width: 140px;
+        border-color: #669900;
+    }
+    
+    header .search .material-icons{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        transition: opacity .4s;
+    }
+    
+    header .search.focused .material-icons{
+        opacity: 0;
+    }
+    
+    /* ------------- main-menu ------------- */
+    
+    
+    header nav ul.main-menu{
+        position: absolute;
+        display: flex;
+        right: 0;
+        top: 60px;
+    }
+    
+    header nav ul.main-menu .item .item__name{
+        cursor: pointer;
+        padding: 10px 20px 34px 20px;
+        font-size: 13px;
+    }
+    
+    
+    header nav ul.main-menu li.item:hover .item__name{
+        background: #2c2a29;
+        color: #669900;
+        text-decoration: underline;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    /* sub-menu */
+    
+    header nav ul.main-menu li.item .item__contents{
+        width: 100%;
+        position: fixed;
+        left: 0;
+        display: none;
+    }
+    
+    header nav ul.main-menu li.item:hover .item__contents{
+        display: block;
+        
+    }
+    
+    
+    /* 1단 */
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu{
+        background: #2c2a29;
+        height: 400px;
+        position: relative;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner{
+        display: flex;
+        padding: 20px 0;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li{
+        width: 220px;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li:nth-child(6) h4{
+        position: absolute;
+        left: 0;
+        bottom:35px;
+    }
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li:nth-child(6) ul{
+        position: absolute;
+        left: 0;
+        bottom: -100px;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li h4{
+        padding: 3px 0 12px 0;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 700;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li ul li{
+        padding: 5px 0;
+        font-size: 12px;
+        color: #999;
+        cursor: pointer;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner:nth-child(6) > li ul li{
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__menu > ul.inner > li ul li:hover{
+        color: #669900;
+    }
+    
+    /* 2단 */
+    
+    header nav ul.main-menu li.item .item__contents .contents__texture{
+        /* padding: 26px 0; */
+        background: url(../imges/main_menu_pattern.jpg);
+        font-size: 12px;
+    }
+    
+    
+    header nav ul.main-menu li.item .item__contents .contents__texture .inner{
+        padding: 20px 0;
+        
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__texture h4{
+        color: #999;
+        font-weight: bold;
+    }
+    
+    header nav ul.main-menu li.item .item__contents .contents__texture p{
+        color: #669900;
+        margin: 4px 0 14px;
+    }
+
+}
